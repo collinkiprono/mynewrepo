@@ -112,17 +112,41 @@ let calcTotal = bills.forEach(function(bill){
 
 /* Replace HTML elements using the DOM - Javascript */
 
+// document.addEventListener("DOMContentLoaded", function(event){
+//     function replacePare(){
+//         let cartSrt = document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML;
+//         console.log(cartSrt);
+//         let newSrt = cartSrt.toString().replaceAll('(','').replaceAll(')','');
+
+//         document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML = newSrt;
+//     }
+//     console.log(replacePare());
+//     replacePare();
+// });
+
 document.addEventListener("DOMContentLoaded", function(event){
     function replacePare(){
-        let cartSrt = document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML;
-        console.log(cartSrt);
-        let newSrt = cartSrt.toString().replace('(','').replace(')','');
+        let cartSrts = document.getElementsByClassName('product-name');
 
-        document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML = newSrt;
-    }
-    console.log(replacePare());
-    replacePare();
-});
+        for (let i = 0; i < cartSrts.length; i++) {
+            const link = cartSrts[i].querySelector('a');
+            link.innerHTML =    link.innerHTML.toString().replaceAll('(','').replaceAll(')','');   
+            
+            // console.log(("the updated link is ", link))
+        }
+            // cartSrts = Array.from(cartSrts);
 
+            // cartSrts.forEach(function(row){
+            //     row = row.querySelector('a');  /// Samaki
+            //     row.innerHTML = row.innerHTML.toString().replaceAll('(','').replaceAll(')','');
+            //     // console.log(row);  
+                
+            // });
+            
+        };
+
+        replacePare();
+  
+    });
 
 
