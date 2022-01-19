@@ -60,7 +60,7 @@ if (bill > 50 && bill <= 300){
     console.log('Your bill was less than 50');
 }
 
-/* Coding challenge #1 */
+/* Coding challenge - Functions #1 */
 
 
 const calcAverage = (a, b, c) => (a + b + c) / calcAverage.length;
@@ -78,7 +78,51 @@ let scoreKoalas = calcAverage(23, 34, 27);
         }
        
     }
-    console.log(checkWinner(scoreDolphins, scoreKoalas));
+
+console.log(checkWinner(scoreDolphins, scoreKoalas));
+
+
+/* Coding challenge #2 */
+
+
+function calcTip(bill){
+    if(bill >= 50 && bill <= 300){
+        let tip = bill * 0.15;
+        return `Your bill is $${bill} and tip is $${tip}, therefore the total is $${bill + tip}`;
+    }else{
+        tip = bill * 0.2;
+        return `Your bill is $${bill} and tip is $${tip}, therefore the total is $${bill + tip}`;
+    }
+}
+console.log(calcTip(600));
+
+/* Loop through an array */
+
+let bills = [125, 555, 44];
+let tips = [0.15, 0.2];
+
+let calcTotal = bills.forEach(function(bill){
+    if(bill >= 50 && bill <= 300){
+        console.log( `Your tip is ${bill * tips[0]}`);
+    }else{
+        console.log( `Your tip is ${bill * tips[1]}`);
+    }
+    })
+
+
+/* Replace HTML elements using the DOM - Javascript */
+
+document.addEventListener("DOMContentLoaded", function(event){
+    function replacePare(){
+        let cartSrt = document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML;
+        console.log(cartSrt);
+        let newSrt = cartSrt.toString().replace('(','').replace(')','');
+
+        document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML = newSrt;
+    }
+    console.log(replacePare());
+    replacePare();
+});
 
 
 
