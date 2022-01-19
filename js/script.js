@@ -60,27 +60,93 @@ if (bill > 50 && bill <= 300){
     console.log('Your bill was less than 50');
 }
 
-/* Coding challenge #1 */
+/* Coding challenge - Functions #1 */
 
-let theDolphins = [44, 23, 71];
-let theKoalas = [65, 54, 49];
 
-    let sumDolphins = theDolphins.reduce((a,b) => a + b, 0 );
-    // let avgDolphins = sumDolphins / theDolphins.length;
-    let sumKoalas = theKoalas.reduce((a,b) => a + b, 0 );
-    // let avgKoalas = sumKoalas / theKoalas.length;
+const calcAverage = (a, b, c) => (a + b + c) / calcAverage.length;
+
+let scoreDolphins = calcAverage(85, 54, 41);
+let scoreKoalas = calcAverage(23, 34, 27);
 
     function checkWinner(avgDolphins, avgKoalas ){
-        if (avgDolphins > avgKoalas){
+        if (avgDolphins >= 2 * avgKoalas){
             return `Dolphins win (${avgDolphins} vs ${avgKoalas})`;
-        }else if(avgKoalas > avgDolphins){
+        }else if(avgKoalas >= 2 * avgDolphins){
             return `Koalas win (${avgKoalas} vs ${avgDolphins})`;
         }else{
             return 'Cannot find a winner'
         }
        
     }
-    console.log(checkWinner((sumDolphins / theDolphins.length), (sumKoalas / theKoalas.length)));
 
+console.log(checkWinner(scoreDolphins, scoreKoalas));
+
+
+/* Coding challenge #2 */
+
+
+function calcTip(bill){
+    if(bill >= 50 && bill <= 300){
+        let tip = bill * 0.15;
+        return `Your bill is $${bill} and tip is $${tip}, therefore the total is $${bill + tip}`;
+    }else{
+        tip = bill * 0.2;
+        return `Your bill is $${bill} and tip is $${tip}, therefore the total is $${bill + tip}`;
+    }
+}
+console.log(calcTip(600));
+
+/* Loop through an array */
+
+let bills = [125, 555, 44];
+let tips = [0.15, 0.2];
+
+let calcTotal = bills.forEach(function(bill){
+    if(bill >= 50 && bill <= 300){
+        console.log( `Your tip is ${bill * tips[0]}`);
+    }else{
+        console.log( `Your tip is ${bill * tips[1]}`);
+    }
+    })
+
+
+/* Replace HTML elements using the DOM - Javascript */
+
+// document.addEventListener("DOMContentLoaded", function(event){
+//     function replacePare(){
+//         let cartSrt = document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML;
+//         console.log(cartSrt);
+//         let newSrt = cartSrt.toString().replaceAll('(','').replaceAll(')','');
+
+//         document.getElementsByClassName('product-name')[0].querySelector('a').innerHTML = newSrt;
+//     }
+//     console.log(replacePare());
+//     replacePare();
+// });
+
+document.addEventListener("DOMContentLoaded", function(event){
+    function replacePare(){
+        let cartSrts = document.getElementsByClassName('product-name');
+
+        for (let i = 0; i < cartSrts.length; i++) {
+            const link = cartSrts[i].querySelector('a');
+            link.innerHTML =    link.innerHTML.toString().replaceAll('(','').replaceAll(')','');   
+            
+            // console.log(("the updated link is ", link))
+        }
+            // cartSrts = Array.from(cartSrts);
+
+            // cartSrts.forEach(function(row){
+            //     row = row.querySelector('a');  /// Samaki
+            //     row.innerHTML = row.innerHTML.toString().replaceAll('(','').replaceAll(')','');
+            //     // console.log(row);  
+                
+            // });
+            
+        };
+
+        replacePare();
+  
+    });
 
 
