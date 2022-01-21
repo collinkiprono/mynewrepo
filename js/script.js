@@ -149,4 +149,48 @@ document.addEventListener("DOMContentLoaded", function(event){
   
     });
 
+    /* Objects */
+
+const jonas = {
+    firstName : 'Jonas',
+    lastName : 'Doe',
+    birthYear : 1994,
+    job : 'Teacher',
+    friends : ['Michael','James', 'Joy'],
+    drivingLicense: false,
+
+    // jonasAge: function(birthYear){
+    //     return 2022 - birthYear;
+    // }
+    jonasAge: function(){
+        return 2022 - this.birthYear;
+    }
+};
+
+console.log(jonas);
+
+//const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job and friends');
+
+// if(jonas[interestedIn]){
+//     console.log(jonas[interestedIn]);
+// }else{
+//     console.log("The value doesn't exist");
+// }
+
+
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonas';
+console.log(jonas)
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends and his best friend is ${jonas.friends[0]}`);
+
+console.log(jonas.jonasAge());
+
+
+
+console.log(`Jonas is a ${jonas.jonasAge()} old ${jonas.job}, and has ${jonas.drivingLicense ? 'a' : 'no'} driver's license`)
+
+
+
+
 
